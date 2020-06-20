@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var a = 10;
+	let b = 20;
+	const c = 30;
+	
+	alert(`a = ${a}, b = ${b}, c = ${c}`);
+	
+	a = a * 5;
+	b = b * 5;
+	// c = c * 5;
+	
+	alert(`a = ${a}, b = ${b}, c = ${c}`);
+	// c가 constant variable이라 상수값이기때문에 변수를 바꿀수 없다. 
+	
+	var a = 100;
+	// let b = 100;
+	
+	alert(`a = ${a}, b = ${b}, c = ${c}`);
+	// var은 호이스팅이 일어나 var a = 100을 위로 올리기때문에 var a; 가 선언되고, 10이 할당되고 그 후에 100이 할당된다.
+	// 하지만 let은 호이스팅이 발생되지 않기때문에 위에서 이미 선언되있기떄문에 오류 발생 
+	
+	{
+		var temp = 1000;
+		let letTemp = 2000;
+		alert(`temp : ${ temp }, letTemp : ${ letTemp }`);
+	}
+	alert(`temp : ${ temp }, letTemp : ${ letTemp }`);
+	// let과 const 변수는 block scope 형태이다. 블록 안에서 생성된 let 변수는 블록이 끝나면 사라지기때문에 alert구문에 letTemp에서 에러가 난다. 
+	
+/*
+	//Hoisting(호이스팅)
+	num = 100;
+	alert(num);
+	var num;
+	alert(num + 20);
+	
+	var a = 100;
+	alert(a);
+	var b = "Hello";
+	alert(b);
+	
+	-------------------------
+	var a;
+	var b;
+	
+	a = 100;
+	alert(a);
+	b = "Hello";
+	alert(b);
+*/
+</script>
+</head>
+<body>
+
+</body>
+</html>

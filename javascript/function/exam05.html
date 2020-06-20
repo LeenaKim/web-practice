@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* 
+	자바스크립트 내장함수
+	1. 타이머
+		setTimeout(함수, ms) // ms 지난 후 함수 실행 		ex)스케줄러 알림 앱  
+		setInterval(함수, ms) // ms가 경과할때마다 함수 실행   ex)반복되는 일과 알림 
+		clearInterval(id) // 해당 id를 가진 interval 삭제
+		clearTimeout(id) // 해당 id를 가진 timeout 삭제 
+		
+	2. 코드 실행함수
+		eval(str)
+		
+	3. 숫자 변환함수
+		parseInt(str)
+		parseFloat(str)
+*/
+/*
+	// 콜백함수 활용 
+	setTimeout(function() {
+		alert('3초가 지났습니다. ')
+	}, 3000); // 3초 후에 function 호출 
+*/
+
+	var id = setInterval(function() {
+		document.write('현재시간 : ' + new Date() + '<br>');
+	}, 1000);
+	
+	setTimeout(function() {
+		clearInterval(id);
+		alert('날짜쓰기 종료... '); // 마지막 10번째 document.write은 alert이 수행된 후에만 출력된다. 왜? 10초가 되는순간 두 함수가 동시호출되는데 이때 alert이 document.write보다 상위함수라서. 
+	}, 10000);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

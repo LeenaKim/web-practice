@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function() {
+		var tag = document.createElement('h1');			// 태그 만들기 
+		var tagText = document.createTextNode("Hello");	// 태그 내용 채우기 
+//		console.log(tag);
+//		console.log(tagText);
+		tag.appendChild(tagText); // 부모는 h1 자식은 Hello. 부모인 tag에 자식인 tagText를 append 시킴. 
+		document.body.appendChild(tag); // 더 상위 부모인 body에 append 
+		
+		var imgTag = document.createElement('img');
+//		console.log(imgTag);
+		imgTag.src = "https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png";
+		//document.body.appendChild(imgTag);
+		
+		var aTag = document.createElement('a');
+		console.log(aTag);
+		// 방법 1
+		//aTag.href = "https://www.daum.net";
+		//aTag.target = '_blank';
+		// 방법 2
+		aTag.setAttribute('href', 'http://www.daum.net');
+		aTag.setAttribute('target', '_blank');
+		aTag.appendChild(imgTag);
+		document.body.appendChild(aTag);
+	}
+</script>
+</head>
+<body>
+	<img src = "">
+</body>
+</html>

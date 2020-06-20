@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function() {
+		alert('inner HTML : ' + document.body.innerHTML);		// innerHTML : html 태그 안의 다른 태그와 그 내용물을 뽑아낸다. 
+		alert('inner Text : ' + document.body.innerText);		// innerText : 태그는 떼고 실제 텍스트만 나오게 
+		
+		let tags = '';
+		tags += '<ul>';
+		tags += '<li>red</li>'
+		tags += '<li>blue</li>'
+		tags += '<li>orange</li>'
+		tags += '</ul>';
+		
+		//document.body.innerHTML = '<h1>' + tags + '</h1>';		// body 밑에 tags 내용을 쓰겠다 => 동적으로 원래있던 body 태그의 내용물이 사라지고 tags만 남게된다. 
+		//document.body.innerText = '<h1>' + tags + '</h1>';		// innerText는 태그 인식을 못해서 문자열처럼 나옴. 
+		//document.write(tags);
+		
+		// 완전 변경 대신 원래 내용에 추가하기 
+		//document.body.innerHTML += tags;
+		
+		document.body.innerHTML += '<br>';
+		document.body.innerText += tags;
+	}
+	// 우리가 지금까지 사용했던 document.write도 document 객체의 write 메소드를 사용한것. 
+</script>
+</head>
+<body>
+	hello<br>
+	<h1>안녕하세요 </h1>
+</body>
+</html>

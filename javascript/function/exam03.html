@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// 값이 없을경우 0으로 주고싶다. 
+	function func(a, b, c){
+		alert('a : ' + a + ', b : ' + b + ', c : ' + c);
+	}
+	
+	function func(a, b, c){
+		/* 방법 1 
+		if(a === undefined)
+			a = 0;
+		if(b === undefined)
+			b = 0;
+		if(c === undefined)
+			c = 0;
+		*/
+		
+		// boolean(undefined) 와 boolean(null), boolean(0) 은 false, 나머지 true
+		// 방법 2 
+		if(!a) a = 0;
+		if(!b) b = 0;
+		if(!c) c = 0;
+		
+		alert('a : ' + a + ', b : ' + b + ', c : ' + c);
+	}
+	// 방법 3
+	function func(a,b,c){
+		a = a || 0; // a가 trued이면 a 에 a 대입, false면 a에 0 대입 
+		b = b || 0;
+		c = c || 0;
+		
+		alert('a : ' + a + ', b : ' + b + ', c : ' + c);
+	}
+	// 방법 4
+	function func(a = 0,b = 0,c = 0){// 날라오는 매개변수가 없으면 0으로 초기화해라. 	
+		alert('a : ' + a + ', b : ' + b + ', c : ' + c);
+	}
+	
+	func();// a, b, c 모두 undefined 
+	func('A'); // b, c는 undefined 
+	func(10, 20);// c는 undefined로 나옴. 
+	func(10,20,30);
+</script>
+</head>
+<body>
+
+</body>
+</html>

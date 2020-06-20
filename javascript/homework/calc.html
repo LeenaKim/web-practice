@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>계산기</title>
+<script>
+	/* 
+	식 뒤에 내가 누른 버튼의 숫자나 기호를 추가하는 함수 
+	*/
+		
+		function add(char){
+			var display = document.getElementById('display');
+			display.value += char;
+		}
+		/* 
+		디스플레이에 씌여진 식 계산 함수 
+		*/
+		function calculate() {
+			var display = document.getElementById('display');
+			
+			if(.includes('%')){
+				var operator = [];
+				/////////////////////////
+				for(var chr of dv){
+					if(chr == '/' || chr == '*' || chr == '-' || chr == '+') {
+						operator.append(dv.indexOf(chr));
+					}
+				}
+				
+			} else { */
+				display.value = eval(display.value);
+				
+			}
+		}
+		
+		/* 
+		디스플레이 초기화 함수 
+		*/
+		function reset() {
+			document.getElementById('display').value = "";
+		
+		}
+	
+</script>
+<style>
+	.btn1 {
+		width: 30px;
+	}
+	
+	.btn2 {
+		width: 65px;
+		height : 20px;
+	}
+</style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+        	<!-- 숫자 입력창 -->
+            <td colspan="4">
+                <input type="text" id="display">
+            </td>
+        </tr>
+        <tr>
+            <td><input type = "button" class="btn1" value="7" onclick="add(7)" /></td>
+            <td><input type = "button" class="btn1" value="8" onclick="add(8)"/></td>
+            <td><input type = "button" class="btn1" value="9" onclick="add(9)"/></td>
+            <td><input type = "button" class="btn1" value="/" onclick="add('/')"/></td>
+        </tr>
+        <tr>
+            <td><input type = "button" class="btn1" value="4" onclick="add(4)"/></td>
+            <td><input type = "button" class="btn1" value="5" onclick="add(5)"/></td>
+            <td><input type = "button" class="btn1" value="6" onclick="add(6)"/></td>
+            <td><input type = "button" class="btn1" value="*" onclick="add('*')"/></td>
+        </tr>
+        <tr>
+            <td><input type = "button" class="btn1" value="1" onclick="add(1)"/></td>
+            <td><input type = "button" class="btn1" value="2" onclick="add(2)"/></td>
+            <td><input type = "button" class="btn1" value="3" onclick="add(3)"/></td>
+            <td><input type = "button" class="btn1" value="-" onclick="add('-')"/></td>
+        </tr>
+        <tr>
+            <td><input type = "button" class="btn1" value="0" onclick="add(0)"/></td>
+            <td><input type = "button" class="btn1" value="." onclick="add('.')"/></td>
+            <td><input type = "button" class="btn1" value="+" onclick="add('+')"/></td>
+            <td><input type = "button" class="btn1" value="%" onclick="add('%')"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type = "button" class="btn2" value="=" onclick="calculate()"/></td>
+            <td colspan="2"><input type = "button" class="btn2" value="clear" onclick="reset()"/></td>
+        </tr>
+    </table>
+</body>
+</html>

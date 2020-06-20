@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* 
+웹브라우저가 코드를 읽어들일때 자바스크립트가 먼저 나오니 자바스크립트를 먼저 읽기때문에 바디를 먼저 읽히고싶을때 onload 사용 
+*/
+	// 방법 1 - onload 
+	function loadCall() {
+		alert('load 완료...');
+	}
+	
+	// 방법 2 - window.onload 함수 재정의 
+	window.onload = function() {
+		alert('load complete');
+	}
+	
+</script>
+</head>
+<!-- <body onload="loadCall()"> -->
+<!-- onload : 로드가 되면 (특히 이벤트에 관한것은 On으로 시작됨. onload 뒤에는 자바스크립트 문법 사용 가능 -->
+<body>
+	<h1>Hello</h1>
+	<h2>Good</h2>
+	<img src = "https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png"><br>
+	<img src = "https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png"><br>
+	<img src = "https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png"><br>
+	<img src = "https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png"><br>
+</body>
+</html>

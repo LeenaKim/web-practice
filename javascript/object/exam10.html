@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+	class Person {
+		// new를 하는순간 호출되는 생성자 
+		constructor(name, phone, addr){
+			this._name = name;		// 클래스의 함수도 객체.함수이름이고, 변수도 객체.변수로 콘솔창에서 호출한다.
+			this._phone = phone;	// 그래서 person.name을 하면 name을 호출해서 가져오지만, 사실 변수 이름은 _name이다.
+			this._addr = addr;		// 즉, 이중보안이 된다는 뜻. 
+		}
+		// getter/setter
+		get name() {
+			return this._name;
+		}
+		
+		set name(name) {
+			this._name = name;
+		}
+		
+		get phone() {
+			return this._phone;
+		}
+		
+		set phone(phone) {
+			this._phone = phone;
+		}
+		
+		get addr() {
+			return this._addr;
+		}
+		
+		set addr(addr) {
+			this._addr = addr;
+		}
+		info() {
+			alert(`name : ${ this._name }\nphone : ${ this._phone }\naddr : ${ this._addr }`);
+		}
+	}
+	
+	class Doctor extends Person {// extends로 인해 프로토타입도 옮겨간다. 
+		constructor(name, phone, addr, major) {
+			super(name, phone, addr); // 클래스 내에서의 super은 예약어이지만, exam09에서 function형태로 세운 객체의 super은 단순 변수이다. 
+			this._major = major;
+		}
+	
+		set major(major){
+			this._major = major
+		}
+		
+		get major(major) {
+			return this._major = major
+		}
+	}
+	
+	let person = new Person('홍길동', '010-1111-2222', '서울시 서초구');
+	console.log(person);
+	person.info();
+	
+	let doctor = new Doctor('나최고', '010-3333-4444', '경기도 용인시');
+	console.log(doctor);
+</script>
+<body>
+
+</body>
+</html>

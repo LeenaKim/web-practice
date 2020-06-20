@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function() {
+		
+		// 이벤트 버블링 : 하위 클래스에서 정의된 이벤트를 그 클래스의 부모 클래스를 타고들어가며 해당 이벤트를 적용시키는 것.
+		// (속성) cancelBubble: false - 버블링 허용 
+		var span = document.querySelector('span')
+		var h1 = document.querySelector('h1')
+		var div = document.querySelector('div')
+		
+		span.onclick = function(e) {//매개변수는 이벤트의 e
+			alert('click span...')
+			console.log(e)
+		}
+		
+		h1.onclick = function(e) {
+			alert('click h1...')
+			e.cancelBubble = true// 버블링을 취소하니 div가 나옴 
+			console.log(e)
+		}
+		
+		div.onclick = function(e) {
+			alert('click div...')
+		}
+	}
+</script>
+</head>
+<body>
+	<div>
+		<h1>
+			<span>Hello</span>
+		</h1>
+	</div>
+</body>
+</html>

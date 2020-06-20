@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* 
+초기화를 해주는 함수 - 가능한 숫자 배열에 012 ~ 987까지 담는다. 
+*/
+function init() {
+	var possibleNum = [];
+	
+	for(var i = 0; i <= 9; i++) {
+		for(var j = 0; j <= 9; j++){
+			for(var k = 0; k <= 9; k++){
+				if(i!=j && i!=k && j!=k){
+					possibleNum.push(String(i) + String(j) + String(k));
+				}
+			}
+		}
+	}
+	return possibleNum;
+}
+
+/* 
+랜덤 인덱스 생성 함수. 
+*/
+function getIdx() {
+	var idx;
+	while(true) {
+	   idx = Math.floor(Math.random() * possibleNum.length);
+	   if(possibleNum[idx] != 0) break;
+	}
+	return idx;
+}
+
+/* 
+스트라이크, 아웃일 경우 다른 함수로 호출시키는 매개함수 
+*/
+function findSBO(usrInput, comNum) {
+	
+	var ansInS;
+	if(usrInput.charAt(1) == 's') {
+		ansInS = guessS(comNum, usrInput[0]);// 스트라이크일시 예상 번호와 스트라이크 개수를 넘겨준다.
+	} else if(usrInput == '아웃'){
+		removeO(comNum);// 아웃일경우 아웃 함수 호출 
+	}
+	
+	if(ansInS != null) return ansInS;
+}
+
+/* 
+스트라이크에 해당하는 숫자를 제외하고 삭제 
+*/
+function guessS(comNum, howManyS) {
+	
+	var guessNum;
+	var	SusrInput;
+	var sIdx;
+	var ansInOS;
+	var ansInTS;
+	
+	if(howManyS == 1){
+		ansInOS = oneS(comNum);
+	} else if(howManyS == 2){
+		ansInTS = twoS(comNum);
+	} else if(howManyS == 3){
+		return comNum;
+	}
+	
+	if(ansInTS != null){
+		return ansInTS;
+	} else if(ansInOS != null){
+		return ansInOS;
+	}
+	
+	/* 
+	원스트라이크 위치 파악 함수 
+	*/
+	function oneS(comNum){
+		
+		// 예상 번호의 자리를 바꿔가며 확인한다. 원래의 번호는 comNum[0] + comNum[1] + comNum[2]
+		guessNum = [comNum[0] + comNum[2] + comNum[1],// 스트라이크일시 해당 숫자는 comNum[0]
+					comNum[1] + comNum[0] + comNum[2],// 스트라이크일시 해당 숫자는 comNum[2]
+					comNum[2] + comNum[1] + comNum[0]];//스트라이크일시 해당 숫자는 comNum[1]
+					
+		for(var j = 0; j < guessNum.length; j++){
+			cnt++;
+			SusrInput = prompt(guessNum[j] + '의 스트라이크 개수는? ');
+			if(SusrInput == 1) {
+				sIdx = j;
+				break;
+			} else if(SusrInput == 2){
+				sIdx = j;
+				return(twoS(guessNum[j]));
+			} else if(SusrInput == 3){
+				sIdx = j;
+				return guessNum[j];
+			}
+		}
+		// 스트라이크에 해당하는 숫자와 인덱스를 함께 넘겨준다. 
+		if(j == 0){
+			removeS([comNum[0], -1, 0, -1]);
+		} else if(j == 1){
+			removeS([comNum[2], -1, 2, -1]);
+		} else {
+			removeS([comNum[1], -1, 1, -1]);
+		}
+	
+	}
+	/* 
+	투스트라이크 위치 파악 함수 
+	*/
+	function twoS(comNum){
+		
+		// comNum과 중복되지 않는 랜덤 숫자를 골라 dummy 숫자로 사용한다. 
+		var dummy;
+		for(var i = 0; i < 1; i++){
+			dummy = Math.floor(Math.random()*9);
+			if(dummy == comNum[0] || dummy == comNum[1] || dummy == comNum[2])
+				i--;
+		}
+		// 숫자의 위치를 바꾼 모든 경우의수 배열. 숫자 2개와 더미숫자 하나를 조합하여 배열 구성.
+		guessNum = [comNum[0] + comNum[1] + String(dummy),
+					String(dummy) + comNum[1] + comNum[2],
+					comNum[0] + String(dummy) + comNum[2]];
+		
+		for(var j = 0; j < guessNum.length; j++){
+			cnt++;
+			SusrInput = Number(prompt(guessNum[j] + '의 스트라이크 개수는? '));
+			if(SusrInput == 2){
+				sIdx = j;
+				break;
+			} else if(SusrInput == 3){
+				sIdx = j;
+				return guessNum[j]; 
+			}
+		}
+		// 해당 숫자와 인덱스를 removeS로 넘겨준다. 		
+		if(j == 0){
+			removeS([comNum[0], comNum[1], 0, 1]);
+		} else if(j == 1){
+			removeS([comNum[1] , comNum[2], 1, 2]);
+		} else {
+			removeS([comNum[0], comNum[2], 0, 2]);
+		}
+		
+	}
+}	
+	
+	
+/* 
+스트라이크에 해당하는 숫자를 제외하고 0으로 바꿔주는 함수 
+*/	
+function removeS(comNum){	
+	
+	
+	if(comNum[1] == -1){	// 원스트라이크 
+		for(var i = 0; i < possibleNum.length; i++){
+			var pn = possibleNum[i];
+			if(pn[Number(comNum[2])] != comNum[0]){
+				possibleNum[i] = 0;				
+			}
+		}
+	} else {	// 투스트라이크 
+		for(var i = 0; i < possibleNum.length; i++){
+			var pn = possibleNum[i];
+			if(pn[Number(comNum[2])] != comNum[0]){
+				possibleNum[i] = 0;				
+			}
+			if(pn[Number(comNum[3])] != comNum[1]){
+				possibleNum[i] = 0;
+			}
+		}
+		}
+	
+}
+
+/* 
+아웃일시 아웃에 해당하는 숫자를 0으로 바꿔주는 함수 
+*/
+function removeO(comNum) {
+	
+	for(var i = 0; i < possibleNum.length; i++){
+		var pn = possibleNum[i];
+		for(var j = 0; j < 3; j++) {
+			if(pn[j] == comNum[0] || pn[j] == comNum[1] || pn[j] == comNum[2]){
+				possibleNum[i] = 0;
+			}
+		}
+	}
+}
+	
+
+/* 
+가능한 숫자의 배열에 0이 아닌 숫자가 몇개 남았는지 확인하는 함수 
+*/
+function howManyLeft(){
+	var cnt2 = 0;
+	for(var i = 0; i < possibleNum.length; i++){
+		if(possibleNum[i] != 0){
+			++cnt2;
+		}
+	}
+	return cnt2;
+}
+
+
+alert('마음속으로 곂치지 않는 정수 세가지를 생각하세요.');
+let cnt = 0;
+let possibleNum = init();
+
+ while(true){
+	cnt++;
+	let comNum = possibleNum[getIdx()]
+	alert(comNum + ' 입니까?');
+	let usrInput = prompt('다음의 옵션중에 해당하는것을 알려주세요. \n1. 스트라이크이면 갯수와 s 입력  \n2. 볼이면 갯수와 b 입력 \n3. 아웃이면 아웃 입력 ');
+
+	let chk = findSBO(usrInput, comNum);
+	if(howManyLeft() == 1){
+		alert('당신의 숫자는 ' + comNum + '입니다. 컴퓨터는 ' + cnt + '번만에 찾았습니다. ');
+		break;
+	} 
+	if(chk != null){
+		alert('당신의 숫자는 ' + chk + '입니다. 컴퓨터는 ' + cnt + '번만에 찾았습니다. ');
+		break;
+	}
+	
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

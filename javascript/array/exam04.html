@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var state = new Array();
+	
+	//state[0] = '서울특별시';
+	//state[1] = '대구광역시';
+	
+	state['서초'] = '서울특별시';
+	state['철산'] = '경기도';
+	state['해운대'] = '부산광역시';
+	
+	for(var index in state){
+		document.write(index + " : " + state[index] + '<br>');
+	}
+	
+	document.write('<br>');
+	
+	var person = new Array();	// 객체가 아니라 배열인데 객체의 멤버변수들처럼 보임. 
+	person['name'] = '홍길동';
+	person['phone'] = '010-1111-2222';
+	person['address'] = '서울시 서초구';
+	person.gender = 'M';
+	
+	for(var key in person){
+		document.write(key + ' : ' + person[key] + '<br>');
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

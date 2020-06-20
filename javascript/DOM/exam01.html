@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* 
+Document 객체 : 화면에 쓰여지는 것들에 대한 객체 
+document.태그 : 기본 태그만 접근 가능. 
+window.onload를 통해 html의 body를 만드는 이유 : body에 정의되는 코드는 정적인 html. 자바스크립트에서 정의되는 코드는 동적인 Html. 만약 화면에서 내가 html에 변화를 주고싶다면 자스로 해야한다. ex) 댓글달때 내 댓글 등록되어 화면이 바뀌는 효과 등. 
+*/
+	console.log(document.body);
+	
+	window.onload = function() {
+		console.log(document.body);
+		// window.onload는 body까지 다 실행한후에 실행되므로 document.body가 null이 아니지만, 바로 console.log(document.body)를 찍으면 null. body가 아직 실행 안됬기 때문. 
+	
+	}
+</script>
+</head>
+<body>
+	hello<br>
+	<h1>안녕하세요</h1>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* 
+배경이 회색인 h1태그 
+클릭시 H1 태그를 클릭했다는 메세지 뜨게 
+*/
+
+	window.onload = function() {
+		var tag = document.createElement('h1');	
+		var tagText = document.createTextNode("Hello");
+		tag.style.backgroundColor = "gray";	
+		tag.appendChild(tagText);
+		document.body.appendChild(tag);
+		
+		tag.onclick = function() {
+			alert('click btn...')
+		}
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

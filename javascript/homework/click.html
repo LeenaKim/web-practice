@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	window.onload = function() {
+		let clkCnt = 0;
+		let clkTxt = document.querySelector('#click');
+		let clk = document.getElementById('plus');
+		clk.onclick = function() {
+			clkCnt++;
+			clkTxt.innerText = clkCnt + '번 클릭';
+		}
+		
+		let rdcCnt = 10;
+		let rdcTxt = document.querySelector('#reduce');
+		let rdc = document.getElementById('minus');
+		rdc.onclick = function() {
+			rdcCnt--;
+			if(rdcCnt >= 0){
+				rdcTxt.innerText = rdcCnt + '번';		
+			}
+		}
+	}
+</script>
+<style>
+	table {
+		border : 2px solid red;
+	}
+</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<td id = 'click'>0번클릭</td>
+			<td><input id = 'plus' type="button" value="클릭"></td>
+		</tr>
+		<tr>
+			<td><input id = 'minus' type="button" value="숫자감소"></td>
+			<td id = 'reduce'>10번</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/* 
+		브라우저 객체 모델(BOM)
+		- window
+			- location 객체 		: 주소와 관련된 객체 
+			- navigator 객체 
+			- history 객체 		: '뒤로가기'처럼 url 이동에 대한 기록을 저장하는 객체 
+			- screen 객체 		: 화면과 관련된 객체 
+			- document 객체		: 화면 출력과 관련된 객체 
+	*/
+	
+	a = 10;
+	window.alert(a)
+	let sub = open("", "", "width = 400, height = 400"); // 팝업창 
+	if(!sub){	// null일경우 false니까 팝업창 안뜰경우 null이되며 false가 됨 
+		alert('팝업창 옵션을 확인하세요. ');
+	}
+	sub.moveTo(100, 100);
+	
+	setInterval(function() {
+		sub.moveBy(20, 20);
+	}, 1000)
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

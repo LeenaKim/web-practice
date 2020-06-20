@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div {
+		width : 300px;
+		/*background-color: blue;*/
+		padding: 10px;
+		margin: 10px;
+		text-align : center;
+		border-color: blue;
+		border-width: 5px;
+		float: left; /* float : inline처럼 화면을 축소 확대할때마다 그에 맞춰 개체들이 한줄로 띄워진다. */
+	}/* border-style을 정의하지 않으면 아무것도 나타나지 않는다.*/
+	
+	#div01 {
+		border-style: solid;
+		
+	}
+	
+	#div02 {
+		border-style: dashed;
+	}
+	
+	#div03 {
+		border-style: dotted;
+		visibility: hidden; /* 해당되는 개체의 공간은 가지고있으면서 화면에 보이지 않음 */
+	}
+	
+	#div04 {
+		border-style: double;
+	}
+</style>
+</head>
+<body>
+	<div id = "div01">사각형-1</div>
+	<div id = "div02">사각형-2</div>
+	<div id = "div03">사각형-3</div>
+	<div id = "div04">사각형-4</div>
+</body>
+</html>

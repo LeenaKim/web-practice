@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// 자바스크립트는 리턴타입이 없다. 어쨌든 var형이니까. 
+	function testFunction() {
+		alert('call...');
+	}
+	
+	function testFunction2(data){
+		alert('data : ' + data)
+	}
+	
+	function testFunction3(data1, data2){
+		alert(`data1 : ${ data1 }, data2 : ${ data2 }`);
+		
+	}
+	
+	function aaa() {
+		alert('call aaa()');
+	}
+	
+	function aaa(data) {
+		alert('call aaa(data)');
+	}
+	
+	function aaa(a, b){
+		alert('call aaa(a, b)');
+	}
+	
+	function sum(a, b){
+		return a + b;
+	} 
+	
+	
+	aaa();// aaa만 호출했는데 aaa(a, b)가 호출되고, function aaa(a, b)를 주석처리했더니 function aaa(data)가 호출됨.
+	// 자바스크립트에서는 함수의 이름만 의미있다. 오버로드라는 개념이 없고 매개변수를 다르게 줘도 함수의 내용부가 재정의, 재정의 된 것이다.
+	// 그래서 맨 마지막에 선언된 aaa 함수가 실제 실행되는 함수다. 함수도 호이스팅이 일어나는것. 
+	
+	var total = sum(12, 45);
+	alert('총합 : ' + total);
+	
+	testFunction();
+	
+	var temp = function func() {
+		alert('call func()');
+	}
+
+	temp(); // 함수의 이름을 var이 받을수있다. 이때 func라는 함수 이름은 무용지물이된다. 
+	
+	// 익명함수 : 함수의 이름을 선언안하고 var로 받는 함수. 익명함수는 함수 호이스팅이 안되서 함수 선언 후에만 호출할 수 있다. 
+	var func01 = function() {
+		alert('call func01()...');
+	}
+	
+	func01();
+	
+	function bbb() {
+		alert('선언적 함수 bbb() 호출...');
+	}
+	// 같은 이름의 선언적, 익명 함수가 있다면 익명 함수가 무조건 우선순위가 높음 
+	var bbb = function () {
+		alert('익명함수 bbb() 호출...');
+	}
+	bbb();
+	
+	// 함수 안의 함수 정의 가능 
+	function printSum(a, b){
+		//alert('1~10 사이의 총합 : ' + getSum(a, b));
+		
+		function getSum(a, b){
+			let s = 0;
+			while(a <= b){
+				s += a++;
+			}
+			return s;
+		}
+		alert('1~10 사이의 총합 : ' + getSum(a, b));
+	
+	}
+	
+	// 자바스크립트에선 리턴타입으로 함수를 받을수도, 매개변수로 함수를 줄수도 있다. 
+	function callbackFunc(f){
+		f();
+	}
+	
+	function testCallback(data, f){
+		f(data);
+	}
+	
+	
+	////////////////// 함수 호출부 /////////////////////
+	
+	testCallback("hello", alert)
+	
+	// 콜백함수 예시 
+	function callback(data, f){
+		alert(data);
+		f();
+	}
+	
+	callback(10, function() {
+		console.log(10);
+	})
+
+	// 콜백함수 : 자기 함수를 수행후 매개변수로 받은 함수를 호출한다. 동적인 함수. 사용자가 그때그때 정의 가능하기때문. 
+	callbackFunc(function(){
+		alert('익명함수호출...');
+	})
+	
+	callbackFunc(aaa);
+	callbackFunc(testFunction);
+	callbackFunc(temp);
+	
+	
+	//var total = getSum(1, 10);
+	//alert('1~10 사이의 총합 : ' + total);
+	printSum(1, 10);
+	
+	
+	testFunction2(100);
+	testFunction2("hello");
+	testFunction3('A', 12.34);
+</script>
+</head>
+<body>
+
+</body>
+</html>

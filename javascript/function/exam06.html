@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	var str = 'alert("hello");';
+		str += 'var number = 10;';
+		str += 'alert(number);';
+		str += 'var array = [10, 12.34, true, "good"];';
+		str += 'alert("배열의 요소개수: " + array.length + "개");';
+	
+	eval(str); // str이 가지고있는 문자열이 자바스크립트라면, 걜 실행해! 
+	
+	number += 30;
+	alert('number : ' + number); // 답은 40. 문자열 내에서 정의된 함수도 실제로 남아있다. 
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

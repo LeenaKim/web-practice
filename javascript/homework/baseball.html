@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	/* 
+	컴퓨터가 중복되지 않은 세 숫자를 뽑는 함수.
+	중복이 안될때까지 무한 루프를 돈다. 
+	*/
+	
+	function getComNum() {
+		
+		while(true){
+		
+			var comNumArr = [];
+			var comNum1 = parseInt(Math.random() * 10);
+			comNumArr.push(comNum1);
+			
+			while(true){
+				var temp2 = parseInt(Math.random() * 10);
+				if(temp2 != comNum1){
+					var comNum2 = temp2;
+					comNumArr.push(comNum2);
+					break;
+				} 
+			}
+			while(true){
+				var temp3 = parseInt(Math.random() * 10);
+				if(temp3 != comNum1 && temp3 != comNum2){
+					var comNum3 = temp3;
+					comNumArr.push(comNum3);
+					break;
+				}
+			}
+			break;
+		}
+		return comNumArr;	
+	}
+	
+	/* 
+	사용자 입력값과 컴퓨터 입력값을 비교해 판단하는 함수 
+	사용자 입력값을 백의자리, 십의자리, 일의자리로 나눠 배열에 넣고, 컴퓨터 숫자의 배열과 반복문을 돌며 비교하여 계산한다. 
+	*/
+	function cal(comNumArr){
+		
+		var outs = 0;
+		var comNum = comNumArr[0] + comNumArr[1] + comNumArr[2];
+		var balls;
+		var strikes;
+		
+		for(var h = 0; h < 10; h++){
+		
+			balls = 0;
+			strikes = 0;
+			var usrNumArr = [];
+			var usrNum = Number(prompt('숫자 3개를 입력 '));
+			
+			var hunds = parseInt(usrNum / 100);
+			usrNumArr.push(hunds);
+			var tens = parseInt(parseInt((usrNum - (hunds * 100)) / 10));
+			usrNumArr.push(tens);
+			var ones = parseInt(usrNum - ((hunds * 100) + (tens * 10)));
+			usrNumArr.push(ones);
+			
+			for(var i = 0; i < 3; i++){
+				for(var j = 0; j < 3; j++){
+					if(usrNumArr[i] == comNumArr[j]){
+						if(i == j){
+							++strikes;
+						} else {
+							++balls;
+						}
+						break;
+					}
+				}
+				if(i == 2 && strikes == 0 && balls == 0){
+					++outs;
+					alert(outs + '아웃')
+				}
+			}
+			
+			if(outs >= 3){
+				alert('아쉽습니다. 아웃이 세번 이상 나왔습니다. 정답은 ' + comNum);
+				break;
+			} else if(strikes == 3){
+				alert('축하합니다. 정답입니다. ');
+				break;
+			} else if(h == 9){
+				alert('아쉽습니다. 기회를 다 소진하셨습니다. 정답은 ' + comNum);
+				break;
+			} else {
+				alert(strikes + 's, ' + balls + 'b, ' + outs + 'o');
+			}
+		
+		}
+		
+	}
+	var comNumArr = getComNum();
+	cal(comNumArr);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

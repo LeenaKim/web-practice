@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		position :	relative;
+		/* static처럼 순서를 가지지만 left, top 등으로 위치 조절 가능 */
+		left : 50px; 
+		width : 100px;
+		height : 100px;
+	}
+	
+	.div01 {
+		background-color: red;
+		left: 50px;
+	}
+	
+	.div02 {
+		background-color: blue;
+		top: 50px;/* relative의 기준은, "원래 static이었다면" 을 기준으로 움직인다. */
+	}
+</style>
+</head>
+<body>
+	<div class = "div01">첫번째 사각형</div>
+	<div class = "div02">두번째 사각형</div>
+</body>
+</html>

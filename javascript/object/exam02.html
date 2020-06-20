@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+   var person ={
+      'name' : '홍길동',
+      'phone' : 1234,
+      'addr' : '경기도 광명시',
+      'info' : function() {
+         /*
+         alert('name : ' + this.name + '\n'
+            + 'phone : ' + this.phone + '\n'
+            + 'addr : ' + this.addr + '\n');      //this 필수(자바와 달리 생략할 수 없다)
+            */
+         /* 
+         let msg = ''         
+         with(this){ //이렇게 하면 this 생략 가능
+            msg += 'name : ' + name + '\n';
+            msg += 'phone : ' + phone + '\n';
+            msg += 'addr : ' + addr + '\n';
+         }
+         alert(msg);
+          */
+          
+         
+          for(var key in this){// key는 속성명, this[key]는 해당 속성의 값 
+             if((typeof this[key]) != 'function')         //info 제외
+                document.write(key + " : " + this[key] + '<br>')   
+                //여기서는 .이 아닌 []를 써야함 - .쓰면 속성명이 name, phone처럼 key를 찾게됨!
+          }
+      }               
+   }
+   
+   person.toString = function(){         
+      //정의되어 있지 않아도 사용할 수 있따. 모든 객체는 object를 받기 때문에 (object 안에 tostring이 있음)
+      let msg = '';
+      for(let key in this){
+         if((typeof this[key] != 'function'))
+            msg += `${ key } : ${ this[key] }<br>`
+      }
+      return msg
+   }
+   
+   document.write(person.toString())      //toString은 무조건 리턴값 문자열 
+   document.write("<hr>");
+   document.write(person)   
+   document.write("<hr>");
+   
+   with(person){
+      info();
+   }
+   
+   person.info();
+   
+</script>
+</head>
+<body>
+
+</body>
+</html>

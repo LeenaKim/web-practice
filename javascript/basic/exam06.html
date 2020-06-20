@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var a = 1;
+	var b = -1;
+	var c = 0;
+	
+	var d = ++a || ++b && ++c;
+	// d값은 boolean이 아니라 2로 나옴. 왜? var d = ++ a에서 d에 ++a를 대입하라고 해석하기때문. 
+	alert('d : ' + d + ', a : ' + a + ', b : ' + b + ', c : ' + c);
+</script>
+</head>
+<body>
+
+</body>
+</html>

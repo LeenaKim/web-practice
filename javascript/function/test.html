@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+function removeS(num, idx) {
+	
+	for(var i = 0; i < possibleNum.length; i++){
+		var pn = possibleNum[i];
+		for(var j = 0; j < 3; j++){
+			if(pn[j] != num && j != idx){
+				document.write(possibleNum[i] + '<br>');
+				possibleNum.spice(i, 1);
+			}
+		
+		}
+	}
+}
+
+var possibleNum = ['123', '456', '789'];
+
+//removeS(109, 0);
+//document.write('제거 후의 배열은 ' + possibleNum);
+</script>
+</head>
+<body>
+
+</body>
+</html>

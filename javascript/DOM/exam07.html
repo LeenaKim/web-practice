@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+
+	function clickTimer() {
+		setTimeout(function() {
+			alert('3초 땡!');
+		}, 3000) 
+	}
+	
+	// 고전적 이벤트 방식 
+	window.onload = function() {
+		let btn = document.getElementById('clickBtn');
+		btn.onclick = function() {
+			alert('click btn...')
+		}
+	}
+</script>
+</head>
+<body>
+	<!-- 인라인 이벤트모델 -->
+	<input type="button" value = "클릭하세요" onclick="alert('click...')":> <!-- 인라인 방식의 이벤트 모델 : 코드에 직접 스크립트 작성 -->
+	<input type="button" value = "3초타이머" onclick="clickTimer()"><!-- 일일히 태그마다 써주기 힘드니 함수를 만들어주는게 좋음. -->
+	
+	<!-- 고전적 이벤트모델 -->
+	<input type="button" value="클릭2" id="clickBtn">
+</body>
+</html>

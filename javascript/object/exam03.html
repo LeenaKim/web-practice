@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+	var person = {
+		'name' : '홍길동',
+		'phone' : '010-1111-2222'
+	}
+	
+	var person2 = {
+		'name' : '강길동',
+		'phone' : '010-2222-3333',
+		'addr' : '서울시 성북구'
+	}
+	
+	// 객체 배열 생성
+	//var persons = [person, person2];
+	
+	var persons = [{
+		'name' : '홍길동',
+		'phone' : '010-1111-2222'
+	}, {
+		'name' : '강길동',
+		'phone' : '010-2222-3333',
+		'addr' : '서울시 서초구 서초동'
+	}]
+	
+	persons.push({
+		'name' : '윤길동'
+	});
+	
+	for(let index in persons){
+	      let p = persons[index]
+	      for(let key in p){
+	         document.write(`${key} : ${p[key]} <br>`)
+	      }
+	      document.write('<hr>')
+//	      document.write(`name : ${p.name}, phone : ${p.phone} <br>`)
+	}
+
+</script>
+<body>
+
+</body>
+</html>

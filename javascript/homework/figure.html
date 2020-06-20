@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//부모클래스//
+	class Figure {
+		constructor(width, height, radius){
+			this._width = width;
+			this._height = height;
+			this._radius = radius;
+		}
+		calArea() {
+			
+		}
+	}
+
+	//자식클래스//	
+	class Rectangle extends Figure {
+		constructor(width, height){
+			super(width, height);
+		}
+	}
+	
+	class Square extends Rectangle {
+		constructor(width){
+			super(width);
+		}
+	}
+	
+	class Oblong extends Rectangle {
+		constructor(width, height){
+			super(width, height);
+		}
+	}
+	
+	class Triangle extends Figure {
+		constructor(width, height){
+			super(width, height);
+		}
+	}
+	
+	class Circle extends Figure {
+		constructor(radius){
+			super(radius);
+		}
+	}
+	
+	
+	// prototype에 선언된 calArea를 각 도형에 맞게 재정의 //
+	Oblong.prototype.calArea = function(){
+		return this._height * this._width;
+	}
+	
+	Triangle.prototype.calArea = function(){
+		return this._height * this._width /2;
+	}
+	
+	Circle.prototype.calArea = function(){
+		return this._width * this._width * Math.PI;
+	}
+	Square.prototype.calArea = function(){
+		return this._width * this._width;
+	}
+	
+	let fig = null;
+	let width;
+	let height;
+	let radius;
+	
+	loop : while(true){
+		
+		var choice = prompt('넓이를 구하고싶은 도형을 선택하세요. \n1. 정사각형 \n2. 직사각형 \n3. 원 \n4. 삼각형 \n5. 종료 ');
+		
+		switch(choice){
+			case '1' : 
+				width = Number(prompt('길이를 입력하세요. '));
+				fig = new Square(width);
+				break;
+			case '2' :
+				width = Number(prompt('가로 길이를 입력하세요. '));
+				height = Number(prompt('세로 길이를 입력하세요. '));
+				fig = new Oblong(width, height);
+				break;
+			case '3' :
+				radius = Number(prompt('반지름을 입력하세요. '));
+				fig = new Circle(radius);
+				break;
+			case '4' :
+				width = Number(prompt('가로 길이를 입력하세요. '));
+				height = Number(prompt('세로 길이를 입력하세요. '));
+				fig = new Triangle(width, height); 
+				break;
+			case '5' :
+				alert('프로그램을 종료합니다.');
+				break loop;
+			default :
+				alert('잘못입력했습니다. 다시 입력하세요. ');
+	
+			}
+		alert('도형의 넓이는 ' + fig.calArea() + '입니다.');
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

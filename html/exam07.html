@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>html 특수문자 표현 </h2>
+	<br>태그는 줄넘김 태그입니다.<br>
+	&lt;br&gt; 태그는 줄넘김 태그입니다. <br> <!-- <와 >를 표현하는 방식 -->
+	[&nbsp;]는 공백문자를 표현합니다.<br>
+	[&amp;nbsp;]는 공백문자를 표현합니다.<br><!-- &를 표현하는 방식 -->
+	
+	<h2>Donation.java</h2>
+	<pre> <!-- 들여쓰기를 허용해줌 -->
+	package kr.ac.kopo.day17.homework.flood;
+	// 스레드들이 공유하고자하는 자원 클래스 	
+	public class Donation {
+
+		private static int ttlDonation = 0;// 총 성금액 
+		private int howMuch = 0;// 전화 한 통마다 받은 성금액 
+		public synchronized int setEachDonation(String name) {
+		
+		try {
+			notify();// 각 콜센터가 번갈아가며 나오게하기위해 먼저 들어온 스레드가 다른 스레드를 block에서 풀어준다. 
+			wait();// 그리고 자신은 block상태에 빠진다. 
+			howMuch = (int)(Math.random()*10+1)*1000;
+			ttlDonation += howMuch;
+			System.out.println(name + "번 콜센터 : " + howMuch + "원을 받았습니다. ");		
+			notifyAll();// 나가기전 모든 스레드를 runnable로 만든다. 
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			return howMuch;			
+		}
+		
+	}
+	
+		public int getTotalDonation() {
+			return ttlDonation;
+		}
+	
+	}
+	
+	</pre>
+	<p>
+		XXX라는 단어는 처음으로 <q>BBB</q>에서 언급되었습니다.
+		<!-- <q> : 인라인 인용. 쌍따옴표로 표현된다.  -->
+	</p>
+	
+	<!-- 문단으로 인용문을 넣고싶을때 -->
+	<blockquote cite = "https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%8B%B0%EB%B8%8C_%EC%9E%A1%EC%8A%A4"> )<!-- 출처를 쓸수도 있지만 화면에 나오진 않는다. -->
+	스티븐 폴 "스티브" 잡스(영어: Steven Paul "Steve" Jobs, 1955년 2월 24일 ~ 2011년 10월 5일)는 미국의 기업인이었으며 애플의 전 CEO이자 공동 창립자이다. 
+	2011년 10월 5일 췌장암으로 사망했다.
+	</blockquote>
+</body>
+</html>

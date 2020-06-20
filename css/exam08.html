@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width: 300px;
+		margin: 10px;
+		padding: 10px;
+		text-align: center;
+		border: 2px solid red;
+		display: table-cell; 
+		/* div 태그는 기본 display가 block 
+		   table-cell : 마치 테이블의 셀처럼. 옆으로 붙는다. */
+	}
+	
+	.div01{
+		border-radius: 10px;
+		border-bottom-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+	
+	.div02{
+		border-top-left-radius: 20px;
+		border-bottom-right-radius: 20px;
+		box-shadow: 10px 10px 10px black;/* 가로 번짐정도, 세로 번짐정도, 얼마나 확장할것인지, 색깔 */
+	}
+	
+	.div03{
+		border-radius: 60px/30px;/* 원의 가로와 세로 반지름을 다르게 하겠다 => 타원이 나옴 */
+		height: 100px;
+	}
+</style>
+</head>
+<body>
+	<div class="div01">사각형1</div>
+	<div class="div02">사각형2</div>
+	<div class="div03">사각형3</div>
+</body>
+</html>

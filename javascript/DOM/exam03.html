@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function() {
+		//var id = document.getElementById('id')	// 해당 id를 가진 요소만 가져온다. (태그포함)
+		var id = document.querySelector('#id');		// 같은 기능 
+		//console.log(id)
+		id.innerHTML = '아이디';	// id가 'id'인 아이의 텍스트를 '아이디'로 바꿔줌. 
+		
+		var password = document.querySelector('.pwd');
+		//console.log(password);
+		password.innerText = '패스워드';
+	}
+</script>
+</head>
+<body>
+	<table border = "1" style = "width : 100px; height: 100px">
+		<tr>
+			<td id = "id">ID</td>
+		</tr>
+		<tr>
+			<td class='pwd'>PASSWORD</td>
+		</tr>
+	</table>
+</body>
+</html>

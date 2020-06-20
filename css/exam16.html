@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#numberList li {
+		float: left;
+		/* margin-right: 20px; 기본 margin은 위아래 양옆 모든 부위의 마진을 의미 */
+		margin: 0px 20px 0px 0px; /* top-right-bottom-left순 */
+		list-style: square; /* 점의 모양을 정해줌 */
+		/* list-style-image: url('./images/Looky3.png'); */
+	}
+	
+	li:first-child {
+		color: orange;
+	}
+	
+	li:last-child {
+		color: blue;
+	}
+	
+	li:nth-child(2n){
+		color: green;
+	}
+	
+	a {
+		margin: 20px;
+	}
+	
+	p {
+		clear: left; /* float: left 태그를 p태그에선 무효화하겠다 */
+		/* clear: both;  left일지 right일지 모르겠지만 둘다 무효화하겠다 */
+	}
+	
+	a:link {/* a태그중에 link가 있는 개체들 */
+		color: lime;
+		text-decoration: none;/* 링크 밑줄 설정 */
+	}
+	
+	a:visited {/* a 태그중에 방문된 링크 개체들 */
+		color: lime;
+	}
+</style>
+</head>
+<body>
+	<ul id="numberList">
+		<li>One</li>
+		<li>Two</li>
+		<li>Three</li>
+		<li>Four</li>
+		<li>Five</li>
+		<li>Six</li>
+		<li>Seven</li>
+		<li>Eight</li>
+		<li>Nine</li>
+		<li>Ten</li>
+	</ul>
+	<p>
+		<a href="http://www.naver.com">NAVER</a>
+		<a href="http://www.google.com">GOOGLE</a>
+	</p>
+</body>
+</html>

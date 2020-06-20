@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	let audio = new Audio()
+	audio.src = "/Lecture-WEB/html/playlist/눈물구름4.mp3";
+	
+</script>
+</head>
+<body>
+	<!-- window.onload 함수를 안만들어도 audio 객체 내의 play, pause 등의 내장함수를 이용 -->
+	<input type = "button" value = "PLAY" onclick = "audio.play()"> 
+	<input type = "button" value = "STOP" onclick = "audio.pause()">
+</body>
+</html>

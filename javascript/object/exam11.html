@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var num = 10;
+	var num2 = new Number(10);
+
+	document.write('num : ' + num + ':' + (typeof num) + '<br>'); 		// number형 (기본자료형) - 프로토타입 정의 불가능 
+	document.write('num2 : ' + num2 + ':' + (typeof num2) + '<br>'); 	// object형 - 프로토타입 정의 가능 
+
+	Object.prototype.info = function() {
+		alert(this)
+	}
+
+	num.info() 	// 기본자료형이라 원래 안되야함 
+	num2.info() // object형이라 원래 얘만 되야함
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

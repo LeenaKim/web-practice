@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 이미지파일을 html에 보이기위해선 html이 위치한 경로에 이미지파일이 존재해야한다. -->
+	<!-- 하지만 절대경로 없이 파일명만 없으면 상대경로로 인식해서 exam08.html과 같은 경로에 있다고 인식한다. -->
+	<!-- 절대경로를 써보면, /Lecture_WEB/html/images -->
+	<!-- <img src = "스크린샷 2020-06-11 오전 10.47.47.png"> -->
+	<img src = "/Lecture-WEB/html/images/Looky.png" alt = "루키사진">
+	<!-- 상대경로 -->
+	<a href = "http://www.naver.com" arget = "_blank">
+		<img src = "images/Looky.png" width = "400" height = "300" border = 2
+			 style = "border-color: aqua;" title="이미지를 클릭해보세요!!!"> 
+			 <!-- ./가 생략되어 현재 폴다 밑에있는 Images 아래에 있는 - 이라는 뜻. -->
+			 <!-- 이미지태그의 Title 속성은 마우스를 이미지에 갖다댔을떄 나오는 구문 -->
+	</a>
+	
+	<a>
+	<hr>
+	<figure>
+		<img src = "images/Looky.png">
+		<figcapion>우리루키</figcapion>
+	</figure>
+	</a>
+</body>
+</html>

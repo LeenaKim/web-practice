@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>우리분식 메뉴</h2>
+	
+	<!-- size속성 : 옵션을 몇개씩 보여줄건지. 디폴트는 한개.
+		 multiple속성 : 옵션 복수선택 가능. -->
+	<select size = 2 multiple>
+		<option>떡볶이</option>
+		<option>순대</option>
+		<!-- selected : 옵션중 가장 먼저 표시 -->
+		<option selected="selected">라면</option>
+		<option>튀김</option>
+	</select>
+	<hr>
+	<select>
+		<optgroup label="분식류">
+			<option>떡볶이</option>
+			<option>순대</option>
+			<option>튀김</option>
+			<option>쫄면</option>
+			<option>라면</option>
+		</optgroup>
+		<optgroup label="식사류">
+			<option>돈까스</option>
+			<option>김밥</option>
+			<option>비빔밥</option>
+			<option>김치찌개</option>
+		</optgroup>
+	</select>
+	<hr>
+	<input list="food02"> <!-- foods라는 애를 참조하려는데, foods는 datalist에 있는 아이들이다. -->
+	<datalist id="food01">
+		<option>떡볶이</option>
+		<option>순대</option>
+		<option>튀김</option>
+		<option>쫄면</option>
+		<option>라면</option>
+	</datalist>
+	<datalist id="food02">
+		<option>돈까스</option>
+		<option>김밥</option>
+		<option>비빔밥</option>
+		<option>김치찌개</option>
+	</datalist>
+</body>
+</html>

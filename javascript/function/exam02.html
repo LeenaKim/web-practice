@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*
+	function aaa() {
+		alert('call aaa()');
+	}
+	
+	function aaa(data){
+		alert('call aaa(data)');
+	}
+	
+	function aaa(a, b){
+		alert('call aaa(a, b)');
+	}
+	
+	aaa(10, 20, 30, 40, 50); // 매개변수가 맞는게 없어도 마지막으로 정의된 함수가 호출됨. 
+	*/
+	
+	/*
+	// arguments : 자바스크립트에서 디폴트로 생성되있는 변수. 함수에 들어오는 매개변수를 배열형태로 받는다. 
+	function aaa() {
+		console.log(arguments);
+	}
+	
+	aaa(10, 20, 30, 40, 50);
+	aaa("hello", 20);
+	*/
+	
+	function aaa() {
+		switch(arguments.length){
+		case 0 :
+			alert('call aaa()...');
+			break;
+		case 1 :
+			alert('data : ' + arguments[0]);
+			break;
+		case 2 :
+			alert('a : ' + arguments[0] + ', b : ' + arguments[1]);
+			break;
+		}
+	}
+	
+	aaa();
+	aaa(10, 20, 30, 40, 50);
+	aaa("hello", 20);
+</script>
+</head>
+<body>
+
+</body>
+</html>

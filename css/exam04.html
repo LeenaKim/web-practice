@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/*
+absolute : 부모가 없을경우 왼쪽 위를 기준, 부모가 있을 경우 부모를 기준
+relative : static 위치를 기준으로 옮겨감 
+fixed 	 : 한 위치에 고정적으로 잡혀서 스크롤을 움직여도 그 위치에 고정적으로 위치
+*/
+	div {
+		position : absolute;
+		/* absolute이면서 별다른 말이 없으면 left-top 위치 기준 
+		   그래서 빨간 사각형 위에 파란 사각형이 곂쳐지게된다. */ 
+		width : 100px;
+		height : 100px;
+	}
+	
+	.div01 {
+		left: 50px;
+		background-color: red;
+		z-index: 1;
+		/* 기본 디폴트는 z-index가 1이기때문에 서로 곂쳐보인다.  
+		   내가 순서를 다르게 하고싶으면 다르게 정의하면 된다. 
+		   z-index가 큰게 먼저 나온다. */
+	}
+	
+	.div02 {
+		top : 50px;
+		background-color: blue;
+		z-index: 1;
+	}
+	
+	.div03 {
+		width : 200px;
+		height : 200px;
+		left : 200px;
+		top : 200px;
+		background-color: gray;
+	}
+	
+</style>
+</head>
+<body>
+	<div class = "div01">첫번째 사각형</div>
+	<div class = "div02">두번째 사각형</div>
+	<div class = "div03">세번째 사각형 
+		<div class = "div01">네번째 사각형</div><!-- absolute position이기때문에 나의 부모를 기준으로 해서 left top만큼 떨어뜨린다.  -->
+	</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// 객체 생성 
+	var person = {
+		name : '홍길동',
+		phone : '010-1111-2222',
+		'phone-home' : '02-1111-2222'// 속성명의 따옴표 생략가능하지만 속성명에 특수기호가 들어가면 따옴표로 묶어줘야함 
+	};
+	
+	document.write('속성 name 존재여부 : ' + ('name' in person) + '<br>');// T
+	document.write('속성 phone 존재여무 : ' + ('phone' in person) + '<br>');// T
+	document.write('속성 addr 존재여무 : ' + ('addr' in person) + '<br>');// F
+
+	console.log(person);
+	// 자바스크립트는 없던 멤버변수도 새로 추가하여 값을 입력할 수 있다. 
+	person.addr = '경기도 광명시';
+	console.log(person);
+	
+	document.write('속성 name 존재여부 : ' + ('name' in person) + '<br>');// T
+	document.write('속성 phone 존재여무 : ' + ('phone' in person) + '<br>');// T
+	document.write('속성 addr 존재여무 : ' + ('addr' in person) + '<br>');// T 
+	
+	// 있던 속성을 지울수도 있다. 
+	delete(person.addr)
+	
+	document.write('속성 name 존재여부 : ' + ('name' in person) + '<br>');// T
+	document.write('속성 phone 존재여무 : ' + ('phone' in person) + '<br>');// T
+	document.write('속성 addr 존재여무 : ' + ('addr' in person) + '<br>');// F 
+	/*
+	alert('name : ' + person['name']); //person이 가진 속성중에 name이요! 
+	alert('phone : ' + person['phone']);
+	
+	alert('name : ' + person.name);
+	alert('phone : ' + person.phone);
+	
+	
+	document.write(typeof person);// person의 type은 object 
+	*/
+</script>
+</head>
+<body>
+
+</body>
+</html>

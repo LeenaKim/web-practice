@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/*
+	// let cnt = 0;
+	for(let cnt = 0;;) {
+	//while(true) {
+		let name = prompt('이름을 입력하세요.');
+		let age = prompt('나이를 입력하세요.');
+	
+		age = Number(age);
+	
+		alert(name + "의 10년 후의 나이 : " + (age + 10) + '세입니다.');
+
+		var input = confirm('계속하시겠습니까?');
+		if(input === false){
+			break;
+		}
+	}
+*/
+
+	let cnt = 0;
+	
+	do {
+		let name = prompt('이름을 입력하세요.');
+		let age = prompt('나이를 입력하세요.');
+	
+		age = Number(age);
+	
+		alert(name + "의 10년 후의 나이 : " + (age + 10) + '세입니다.');	
+		alert(++cnt + '번 수행되었습니다.');
+	} while(confirm('계속 하시겠습니까? '));
+</script>
+</head>
+<body>
+
+</body>
+</html>

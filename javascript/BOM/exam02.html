@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var sub = window.open("", "", "width=400, height=400");
+	
+	// screen 객체 : 사용자 컴퓨터의 가로 세로 정보가 들어있는 객체 
+	let width = screen.width;
+	let height = screen.height;
+	
+	//sub.moveTo(0,0);	// 상대적 위치는 moveBy. moveTo는 절대 위치 
+	//sub.resizeTo(width, height); // 절대적 크기를 resize 
+	
+	// 화면 시간마다 줄어들고 크게하기 
+	setInterval(function() {
+		sub.resizeBy(-20, -20);
+	}, 1000)
+</script>
+</head>
+<body>
+
+</body>
+</html>

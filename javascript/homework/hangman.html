@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	var dict = ["rainbow", "banana", "boat", "apple", "icecream"];
+	var cnt = 7;
+	var alphaList = [];
+	var str = [];
+	
+	/* 
+	게임 시작을 알리는 함수. 맞추고자하는 단어를 정하고 단어의 길이만큼 배열에 *을 저장한다. 
+	*/
+	function init() {
+		alert('## 행맨게임에 오신걸 환영합니다. 7번 안에 맞춰야합니다. ##');
+		var idx = Math.floor(Math.random() * 5);
+		var word = dict[idx];
+		for(var j = 0; j < word.length; j++){
+			str.push('*');
+		}
+		return word;
+	}
+	
+	/* 
+	추측 로직 함수. 단어에 해당 알파벳이 포함되있다면 포함된부분의 인덱스를 해당 알파벳으로 바꿔준다.
+	*/
+	function guess(alpha, word) {
+		
+		if(word.includes(alpha)){
+			for(var i = 0; i < word.length; i++){
+				if(word[i] == alpha) {
+					str[i] = alpha;
+				}
+			}
+			return true;
+		} else {
+			cnt--;
+			alert(alpha + '는 존재하지 않습니다. <br> 기회는 ' + cnt + '번 남았습니다. ');
+			return false;
+		}
+		
+		
+	}
+	
+	/* 
+	정답 여부를 알려주는 함수. 
+	*/
+	function chkAns(){
+		var check = prompt('단어를 아시겠습니까? y/n');
+		if(check == 'y'){
+			var answer = prompt('단어를 입력하세요. ');
+			if(answer == word){
+				alert('정답입니다~~! ');
+				return true;
+			} else {
+				alert('정답이 아닙니다. ');
+				return false;
+			}
+		} else return false;
+	}
+	
+	var word = init();
+	
+	alert('컴퓨터의 단어는 ' + word);
+	
+	/* 
+	메인. 
+	*/
+	while(true){
+		var alpha = prompt(str + '   A - Z : ');
+		var isAns = false;
+		var doesInclude = false;
+		doesInclude = guess(alpha, word);
+		if(doesInclude){
+			alert(str);
+			isAns = chkAns();
+		}
+		if(isAns) break;
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

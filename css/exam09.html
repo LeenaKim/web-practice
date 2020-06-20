@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 웹 폰트 사용법 : fonts.google.com에서 embeded-> link 복사 붙여넣기. font-family에 이름 붙여넣기. -->
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Dokdo&family=Nanum+Pen+Script&display=swap');
+	body {
+		font-family: "궁서체", "굴림"; 
+		/* 1순위 궁서, 없으면 2순위 굴림으로 보여줘! 
+		   폰트 목록은 '서체관리자'에서, 새로운 폰트는 네이버 나눔폰트나 fonts.google.com 에서 다운*/
+		font-size: 16pt;
+		/* font-size: xxs;
+		   12pt = 16px 
+		   1em : 대문자 M을 1이라고 가정하여 거기서 얼만큼을 쓸것인지 */
+	}
+	
+	div {
+		font-family: 'Nanum Pen Script', '나눔바름펜 Bold';
+	}
+	
+	.div01{
+		font-family: 'Amatic SC', 'Dokdo';
+		min-height: 200px;
+		font-size: 22pt;
+		background-color: lightgray;
+		font-weight: 900;
+		font-style: italic;
+		font-variant: small-caps; /* 소문자가 작은 대문자로, 결국 모두 대문자로 나온다 */
+	}
+</style>
+</head>
+<body>
+	안녕하세요
+	<div>
+		hello 안녕~~~ 
+	</div>
+	<div class="div01">
+		Welcome!<br>
+		Hello World!<br>
+		환영합니다!  
+	</div>
+	<p>
+		하하하하하
+		<!-- 궁서체가 나온다. 왜냐면 p는 따로 설정해주지 않았으므로 부모인 body에서 정의한 폰트와 스타일을 따라가기 때문.  -->
+	</p>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var nums = [10, 20, 30, 40, 50];
+	
+	/* 
+		0번째 변수 : 10
+		1번째 변수 : 20
+		2번째 변수 : 30
+		3번째 변수 : 40
+		4번째 변수 : 50
+	*/
+	// 배열 출력 방식 //
+	document.write('<h2>첫번째 방식</h2>');
+	for(let i = 0; i < nums.length; i++){
+		document.write(`{ i }번째 정수 : ${ nums[i] }<br>`);
+	}
+	
+	document.write('<h2>두번째 방식</h2>');
+	for(let idx in nums){
+		document.write(`${ idx }번째 정수 : ${ nums[idx] }<br>`)
+	}
+	
+	document.write('<h2>세번째 방식</h2>');
+	nums.forEach(function(element, index, nums) {
+		document.write(`${ index }번째 정수는 ${ element }<br>`);	// nums 내의 요소의 개수만큼 이 함수를 호출해줘! - forEach의 콜백함수의 매개변수 수는 3개. 1. element 2. index 3. 배열  
+		document.write(nums + '<br>')
+	})
+	
+//	var copyNums = [...nums];
+	/* var copyNums = [];
+	for(let i in nums){
+		copyNums[i] = nums[i] + 100;
+	} */
+	
+	// forEach처럼 요소 개수만큼 돈다. 
+	var copyNums = nums.map(function(element) {
+		return	element + 100; // 요소마다 100을 더해서 새로운 배열로 딥카피 
+	})
+	
+	document.write('nums : ' + nums + '<br>');
+	document.write('copyNums : ' + copyNums + '<br>');
+	/* 
+	for(let data of nums){
+		if(data % 10 != 0){
+			bool = false;
+			break;
+		}
+	}
+	 */
+	 
+	 // 배열의 모든 요소가 함수 내용에 true여야 true 반환 
+	 let bool = nums.every(function(element, index, nums){
+		 return element % 10 == 0;
+	 })
+	 
+	 
+	 document.write('every() 결과 : ' + bool + '<br>');
+	 
+	 // 배열 요소중 하나라도 함수 내용에 true이면 true 반환 
+	 bool = nums.some(function(element, index, nums){
+		 return element % 10 != 0;
+	 })
+	 document.write('some() 결과 : ' + bool + '<br>');
+	 
+	 /* 
+   	 let s = 0;
+   	 for(let data of nums){
+     	s += data
+     }
+   	 */
+   
+   	 // 배열의 총합 구하기 
+   	 // reduce() : 0번째부터 0번째 + 1이 before가 되고, before + 2가 before가 되고... 원소를 두개씩 잘라서 계산한다. 
+   	 var sum = nums.reduce(function(before, element, index){
+   		 return before + element;
+     })
+     
+     document.write('배열의 총합 : ' + sum + '<br>');
+	 </script>
+</head>
+<body>
+
+</body>
+</html>

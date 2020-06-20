@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		transition-property: background-color, border-radius; /* background color을 1초에 걸쳐 모양을 바꾸고싶다 */
+		transition-duration: 3s;
+		transition-timing-function: ease;
+		transition-delay: 1s; /* 1초의 딜레이를 줌 */ 
+	}
+	
+	div:hover {
+		border-radius: 50%;
+		background-color: blue;
+	}
+</style>
+</head>
+<body>
+	<div>사각형</div>
+</body>
+</html>

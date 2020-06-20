@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function Person(name, phone, addr){
+	this.name = name;// new를 이용해서 객체의 공간을 만들고, 날라온 매개변수를 동적으로 멤버변수로 추가 
+	this.phone = phone;
+	this.addr = addr;	
+}
+
+// Person.prototype.hobby = '숨쉬기'; // 꼭 함수만 프로토타입으로 정할 수 있는것이 아니라 변수도 가능
+
+Person.prototype.info = function() {
+	var msg = '';
+	for(let key in this){
+		if((typeof this[key] != 'function'))
+			msg += key + ' : ' + this[key] + '<br>'
+	}
+	document.write(msg);
+}
+
+function Doctor(name, phone, addr, major) {
+	
+	this.super = Person; 					// super은 변수명일뿐 
+	this.super(name, phone, addr);
+	
+	//Person.apply(this, arguments)			// apply() : 배열을 넘겨주면 배열 인자 하나하나가 Persion()의 매개변수 하나하나로 넘겨진다. 
+	//Person.call(this, name, phone, addr) 	// call() : person 생성자 호출하겠다 
+										 	// this : person의 this에 저장하지 말고 doctor의 this.name, phone, addr에 저장해라. 
+	this.major = major
+}
+
+Doctor.prototype = Person.prototype; // doctor의 프로토타입을 person의 프로토타입과 같게함. 
+
+let person = new Person('홍길동', '010-1111-2222', '경기도 광명시');
+person.info();
+
+let doctor = new Doctor('나최고', '010-3333-4444', '서울시 서초구 서초동', '성형외과');
+console.log(doctor);
+
+document.write('person instanceof Person : ' + (person instanceof Person) + '<br>');
+document.write('doctor instanceof Doctor : ' + (doctor instanceof Doctor) + '<br>');
+document.write('doctor instanceof Person : ' + (doctor instanceof Person) + '<br>');
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

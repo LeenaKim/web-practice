@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.div01 {
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		background-color: red;
+	}
+	
+	.div02 {
+		position: fixed; /* fixed된 개체는 스크롤을 내릴때 같이 따라간다. */ 
+		width: 100px;
+		height: 100px;
+		background-color: blue;
+		bottom: 100px;/* 오른쪽, 밑에서 각각 100씩 올라온 위치 */
+		right: -100px;
+	}
+</style>
+</head>
+<body>
+	<div class = "div01"></div>
+	<div class = "div02"></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function() {
+		let idTag = document.getElementById('id');
+		idTag.parentNode.removeChild(idTag); 	// idTag의 부모를 찾아서 그의 자식중 하나를 지우려하는데, 그 자식의 아이디가 idTag인놈 
+	//	idTag.remove();		// idTag 자체를 지움 
+		
+		let pwd = document.getElementById('pwd');
+	
+		pwd.style.fontSize = '20pt';
+		pwd.style.color = "red";
+		pwd.style.backgroundColor = "gray"; // .을 썼으므로 - 문자를 쓸 수 없어 카멜표기법으로 
+		pwd.style['border-style'] = 'dashed';
+		pwd.style['border-color'] = 'blue';
+		console.log(pwd.style['border-width'] = '3px')
+	}
+</script>
+</head>
+<body>
+	<table border = "1" style = "width : 100px; height: 100px">
+		<tr>
+			<td id = "id">ID</td>
+		</tr>
+		<tr>
+			<td id = "pwd">PASSWORD</td>
+		</tr>
+	</table>
+</body>
+</html>

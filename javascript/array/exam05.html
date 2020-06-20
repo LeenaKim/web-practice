@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+//	var books = ['신데렐라', '콩쥐팥쥐', '피터팬', '백설공주'];
+	var books = new Array();
+	
+	books.push('신데렐라');
+	books.push('콩쥐팥쥐');
+	books.push('피터팬');
+	books.push('백설공주');
+	
+	for(let element of books){
+		document.write(element + '&nbsp;&nbsp;&nbsp;');
+	}
+	document.write('<hr>');
+	
+	books.sort()
+	
+	// 가나다순으로 정렬됨 
+	for(let element of books){
+		document.write(element + '&nbsp;&nbsp;&nbsp;');
+	}
+	document.write('<hr>');
+	
+	var nums = [12, 5, 357, 85, 56, 8, 21];
+	document.write(nums + '<hr>');
+	
+	nums.sort()
+	
+	// 숫자는 오름차순으로 정렬 안됨. 왜? 숫자를 문자로 인식해서 정렬하기떄문. 첫글자가 ascii가 가장 작은것 순으로 정렬함. 
+	document.write(nums + '<hr>');
+	
+	// 정수형 오름차순 정렬법 
+	nums.sort(function(left, right) {
+		return left - right; 
+	})
+	document.write(nums + '<hr>');
+
+	// 정수형 내림차순 정렬법 
+	nums.sort(function(left, right) {
+		return right - left; 
+	})
+	document.write(nums + '<hr>');
+</script>
+</head>
+<body>
+
+</body>
+</html>

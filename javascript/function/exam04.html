@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function returnFunc(name){
+		var msg = '반갑습니다' + name + '님!!!';
+		
+		// closer : 함수를 리턴 
+		return function() {// msg는 함수가 끝나면 사라지는 변수. 하지만 함수를 리턴할떄 함수를 호출하면 return에 있는 함수가 끝날때까진 msg가 사라지지 않는다. 
+			alert(msg);
+		};
+	}
+	/*
+	returnFunc();
+	alert(msg); // 오류발생. msg는 returnfunc이 끝나면 사라지기 때문.
+	*/
+	
+	var f = returnFunc('홍길동');
+	f();
+	f();// 몇번을 호출하던 실행됨. msg를 f()가 계속 갖고있기때문. 
+	
+	// 보통은 returnFunc('홍길동')(); 이렇게 호출. 
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+logic:  
+
+	1)
+
+	현재 답의 가능성이 있는 조합중에 랜덤으로 찍는다.
+
+	(최초시엔 모든 값이 가능성이있다. 최초시엔 0 1 2 ~ 9 8 7 까지 중에 랜덤으로 찍는다.)
+
+	 
+
+	2)
+
+	만약 8 4 5 가 선택되었다면
+
+	비교한다. > 1B 가 나왔다.
+
+	 
+
+	3)
+
+	그럼 1 2 3 ~ 9 8 7 중에서 8 4 5 를 넣었을때 1B 가 나오는 것들만 남기고 모두 삭제한다.
+
+	만약 최종 하나의 값이 나왔다면 종료하고 아니라면 1) 로 간다.
+*/
+	// 가능한 수를 담아놓는 배열을 생성하는 함수 //
+	
+	function init() {
+		var possibleNum = [];
+		
+		for(var i = 0; i <= 9; i++) {
+			for(var j = 0; j <= 9; j++){
+				for(var k = 0; k <= 9; k++){
+					if(i!=j && i!=k && j!=k){
+						possibleNum.push(String(i) + String(j) + String(k));
+					}
+				}
+			}
+		}
+		
+		
+		
+		return possibleNum;
+	}
+	
+	function getIdx() {
+		var idx;
+		while(true) {
+		   idx = Math.floor(Math.random() * possibleNum.length);
+		   if(possibleNum[idx] != 0) break;
+		}
+		return idx;
+	}
+	
+	// s, b, o를 판단하는 함수 //
+	
+	function findSBO(comNum) {
+		var outs = 0;
+		var strikes = 0;
+		var balls = 0;
+		
+			
+			for(var i = 0; i < 3; i++){
+			
+			
+				for(var j = 0; j < 3; j++){
+					if(usrNumArr[i] == comNum[j]){
+						if(i == j){
+							++strikes;
+							removeS(usrNumArr[i], i);
+					
+						} else {
+							++balls;
+							removeB(usrNumArr[i]);
+						}
+						break;
+					}
+				}
+				if(i == 2 && strikes == 0 && balls == 0){
+					++outs;
+					removeO(comNum);
+				}
+	
+			}
+		
+		var check = howManyLeft();
+		if(check == 1){
+			return true;
+		}
+		
+		
+		
+		
+	}
+	
+	
+	function howManyLeft(){
+		var cnt = 0;
+		for(var i = 0; i < possibleNum.length; i++){
+			if(possibleNum[i] != 0){
+				++cnt;
+			}
+		}
+		return cnt;
+	}
+	
+	/* 
+	스트라이크 제거 함수 
+	*/
+	function removeS(num, idx) {
+		//document.write('num : ' + num + ', idx : ' + idx + '<br>');
+		document.write('스트라이크에 해당하는 숫자를 삭제합니다.<br>');
+		for(var i = 0; i < possibleNum.length; i++){
+			var pn = possibleNum[i];
+			if(pn[idx] != num){
+				//document.write('제거할 숫자는 ' + pn + '<br>');
+				possibleNum[i] = 0;				
+			}
+		}
+	}
+	
+	function removeB(num){
+		document.write('볼에 해당하는 숫자를 삭제합니다.<br>');
+		for(var i = 0; i < possibleNum.length; i++){
+			var pn = possibleNum[i];
+			for(var j = 0; j < 3; j++) {
+				if(pn[j] == num){
+					break;
+				} else if(j == 2){
+					possibleNum[i] = 0;
+				}
+			
+			}
+		}
+	}
+	
+	function removeO(comNum) {
+		document.write('아웃에 해당하는 숫자를 삭제합니다.<br>');
+		var comNum1 = comNum[0];//5
+		var comNum2 = comNum[1];//6
+		var comNum3 = comNum[2];//9
+		
+		for(var i = 0; i < possibleNum.length; i++){
+			var pn = possibleNum[i];
+			for(var j = 0; j < 3; j++) {
+				if(pn[j] == comNum1 || pn[j] == comNum2 || pn[j] == comNum3){
+					//document.write('제거할 숫자는 ' + pn + '<br>');
+					possibleNum[i] = 0;
+				}
+			}
+		}
+	}
+	
+	///// main /////
+	var cnt = 0;
+	
+	var possibleNum = init();
+	var idx = getIdx();
+	
+	var usrNumArr = [];
+	var usrNum = (prompt('0 ~ 9까지 중복되지 않는 세 정수를 입력하세요. '));
+	
+	for(let n of usrNum){
+		usrNumArr.push(n);
+	}
+	
+	
+	//// 출력 //// 
+	document.write('컴퓨터의 가능한 모든 숫자는 ' + possibleNum + '<br>');
+	document.write('첫번째 랜덤 인덱스는 ' + idx + '<br>');
+	document.write('사용자의 숫자는 ' + usrNumArr + '<br>');
+	
+	while(true){
+		cnt++;
+		var idx = getIdx();
+		document.write('컴퓨터의 숫자는 ' + possibleNum[idx] + '<br>');
+		if(findSBO(possibleNum[idx])) {
+			document.write('당신이 선택한 숫자는 ' + possibleNum[idx] + '입니다. <br>');
+			document.write('컴퓨터는 ' + cnt + '번만에 찾았습니다. ');
+			break;
+		}
+	}
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

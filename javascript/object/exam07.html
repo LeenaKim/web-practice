@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* 
+자바스크립트의 생성자함수또한 new Person('hong', '010-1111-2222') 처럼 대문자 이용 
+*/
+	/* 반환값이 따로 없어도 new 키워드로 생성하는 함수. 
+	사실 자바스크립트는 객체라는 개념이 없고 다 함수형태다. 
+	new로 인해 할당된 메모리가 프로토타입을 가리킨다. 
+	내 안에 프로토타입을 갖고있으면 객체라 부른다. 
+	생성자함수는 프로토타입을 갖게하는 함수이다. 
+	*/
+	function Person(name, phone, addr){
+		this.name = name;// new를 이용해서 객체의 공간을 만들고, 날라온 매개변수를 동적으로 멤버변수로 추가 
+		this.phone = phone;
+		this.addr = addr;
+		
+		this.info = function() {
+			var msg = '';
+			for(let key in this){
+				if((typeof this[key] != 'function'))
+					msg += key + ' : ' + this[key] + '<br>'
+			}
+			document.write(msg);
+		}
+	}
+	
+	var p = new Person('홍길동', '010-1111-2222', '서울시 서초구');
+	
+	//console.log(p);
+	// 생성자를 이용해서 객체생성시 콘솔창을 보면 전에 var p = function()으로 만들었을때는 Object형으로 나온것에 반해 Person형으로 나옴. 
+
+	p.info();
+	
+	var p2 = new Person();
+	p2.info();
+	
+	// p1과 p2가 서로 공유하는 info 같은 함수는 두 객체 모두가 가진 prototype 공간에 만든다. 두번 생성되는 메모리 낭비를 줄이기위해. 
+	Person.prototype.aaa = function() {
+		alert('aaa')
+	}
+	console.log(p);// console창에 proto에 aaa함수가 정의된걸 확인. 정의할땐 형.prototype.함수이름을 쓰지만, 호출할땐 똑같이 변수명.함수이름만 가지고 호출. 
+
+	p.aaa();
+	
+	document.write('p instanceof Person: ' + (p instanceof Person) + '<br>');
+	
+	//aaa 함수 재선언시 다 바뀌는 효과를 가짐 
+	Person.prototype.aaa = function() {
+		alert('change...');
+	}
+	
+	p.aaa();
+	p2.aaa();
+	
+	// 객체형.프로토타입.함수가 아니라 객체.함수를 재정의할경우 해당 객체가 가진 함수의 내용만 바뀐다. 마치 메소드 오버라이드. 내 객체에 선언된 함수가 먼저, 그게 없으면 프로토타입에서 선언된 함수까지 간다. 
+	p.aaa = function() {
+		alert('p에서 정의한 aaa()')
+	}
+	
+	p.aaa();
+	p2.aaa();
+</script>
+</head>
+<body>
+
+</body>
+</html>
