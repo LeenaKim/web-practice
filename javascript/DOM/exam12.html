@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* 
+document.searchForm.searchType 					=> select의 리스트를 볼 수 있다.
+document.searchForm.searchType.selectedIndex 	=> 현재 선택된 옵션의 인덱스가 나온다. 
+document.searchForm.searchType[i].selected 		=> 해당 옵션이 선택되었는지 아닌지 
+
+document.wearchForm.searchWord.value			=> searchWord 이름을 가진 태그의 값. 비어있을시 ""
+*/
+ 
+	function checkForm() {
+		let f = document.searchForm
+		
+		// if(f.searchType.selectedIndex == 0){
+		if(f.searchType[0].selected) {
+			alert('검색 항목을 선택하세요.');
+			f.searchType.focus(); // 사용자가 선택하지 않은 개체로 커서가 움직인다. 
+			return false;
+		} /* 
+		if(f.searchWord.value == ""){
+			alert('검색어를 입력하세요.');
+			return false;
+		} */
+		
+		let words = ['', '제목', '작성자'];
+		if(f.searchWord.value == ''){
+			alert('검색할 ' + words[f.searchType.selectedIndex] + '을(를) 입력하세요.');
+			f.searchWord.focus();
+			return false;
+		}
+		
+		if(f.searchWord.value.length < 2){
+			alert('검색어는 2글자 이상 입력하세요. ')
+			f.searchWord.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
+</head>
+<body>
+	<form action="http://www.naver.com" name="searchForm" onsubmit="return checkForm()"> 
+	<!-- onsubmit : submit으르 허용할까요 말까요 = action url로 갈까요 말까요 
+		return true 	: 가겠다 
+		return false 	: 안가겠다 
+		return 함수()		: 때에 따라 달라진다 -->
+		<select name="searchType">
+			<option>선택하세요</option>
+			<option>제목</option>
+			<option>작성자</option>
+		</select>
+		<input type="text" name="searchWord">
+		<input type="submit" value="검색">
+	</form>
+</body>
+</html>

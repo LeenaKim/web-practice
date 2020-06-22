@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+/* 
+	DOM Level 2
+	표준이벤트모델 - addEventListener(이벤트속성, handler, capturing 사용여부)
+*/
+	window.onload = function() {
+		let btn = document.getElementById('btn');
+		btn.addEventListener('click', function() {	// onclick 대신 속성명 click만. 
+			alert('button click...');
+		}, true)
+		
+		// 이벤트 버블링 발생 -> span의 click -> button의 click 발생 (하위에서 상위태그로 이벤트가 올라감)
+		// 하지만 버튼쪽에 이벤트 캡쳐링을 true로 만들면 상위에서 하위쪽으로 이벤트가 내려감. (=이벤트 버블링 false)
+		// 디폴트는 버블링이 캡쳐링보다 우선. 캡쳐링을 true로 만드는순간 캡쳐링이 우선. 
+		let span = document.querySelector('span')
+		span.addEventListener('click', function() {
+			alert('span click...')
+		})
+	}
+	
+
+
+/*  DOM Level 1
+	window.onload = function() {
+		let btn = document.getElementById('btn');
+		btn.onclick = function() {
+			
+		}
+	}
+ */
+
+</script>
+</head>
+<body>
+
+	<button id="btn"><span>Click</span></button>
+</body>
+</html>

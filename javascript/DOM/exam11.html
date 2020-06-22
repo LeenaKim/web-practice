@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// 지금은 window.onload가 필요 없다. showInfo()를 클릭했다는건 이미 웹브라우저가 다 뜬 후라서. 
+	function showInfo() {
+		let list = '';
+		let hobbys = document.inputForm.hobby;
+		for(let i = 0; i < hobbys.length; i++){
+			if(hobbys[i].checked)	// checked된 항목만 콘솔에 출력 
+				//console.log(document.inputForm.hobby[i]);
+				list += hobbys[i].value + '\n'
+		}
+		alert(list)
+	}
+	/* 
+	function cancelAll() {
+		let hobbys = document.inputForm.hobby;
+		for(let i = 0; i < hobbys.length; i++){
+			if(hobbys[i].checked){
+				hobbys[i].checked = false;
+			}
+		}
+	}
+	
+	function selectAll() {
+
+		let hobbys = document.inputForm.hobby;
+		for(let i = 0; i < hobbys.length; i++){
+			if(!hobbys[i].checked){
+				hobbys[i].checked = true;
+			}
+		}
+	} */
+	
+	function toggle(check){
+		for(let i in document.inputForm.hobby){
+			document.inputForm.hobby[i].checked = check;
+		}
+	}
+	
+	function toggle(){
+		let hobbys = document.inputForm.hobby
+		/*
+		for(let i in hobbys){
+			hobbys[i].checked = !hobbys[i].checked // true는 false로, false는 true로 바꿔줌 
+		}
+		*/ 
+		// 몇개만 선택했을시 전체 선택을 하고, 아무것도 선택되있지않을시 전체선택해체하고싶다. - 내 코드 
+		var cnt = 0;
+		for(let i = 0; i < hobbys.length; i++){
+			if(hobbys[i].checked) ++cnt;
+		} 
+		if(cnt == 4){
+			for(let i in hobbys){
+				hobbys[i].checked = false;
+			}
+		} else {
+			
+			for(let i in hobbys){
+				hobbys[i].checked = true;
+			}
+		} 
+		/* 교수님 코드 
+		let check = false;
+		// 하나라도 false가 있다면 check 변수를 true로 바꿔준다. 
+		for(let i = 0; i < hobbys.length; i++){
+			if(!hobbys[i].checked){
+				check = true;
+				break;
+			}
+		}
+		// false가 하나도 없으면 check은 false 
+		for(let i = 0; i < hobbys.length; i++){
+			hobbys[i].checked = check;// 하나라도 false가 있으면 전체를 true로, false가 없으면 전체를 false로 
+		} */
+	}
+</script>
+</head>
+<body>
+<!-- document.name으로 접근할 수 있는 태그는 유일하게 Form태그뿐. document.inputForm.hobby -->
+	<form action="" name="inputForm"> <!-- form태그는 name 속성 필수 -->
+		당신의 취미는? <br><!-- 단일선택은 Radio, 복수선택은 check box -->
+		<input type="checkbox" name="hobby" value="음악감상">음악감상<br>	<!-- value : 해당 Input이 갖는 값. 보통 영어로 써준다. -->
+		<input type="checkbox" name="hobby"	value="movie">영화감상<br>
+		<input type="checkbox" name="hobby" value="등산">등산<br>
+		<input type="checkbox" name="hobby"	value="game">게임<br>
+<!--		<input type="button" value="전체선택" onclick="selectAll()"><br>
+		<input type="button" value="전체취소" onclick="cancelAll()"><br> -->
+		<!-- <input type="button" value="전체선택" onclick="toggle(true)"><br>
+		<input type="button" value="전체취소" onclick="toggle(false)"><br>  -->
+		<input type="button" value="전체선택/해제" onclick="toggle()">
+		<input type="button" value="결과보기" onclick="showInfo()">
+	</form>
+</body>
+</html>

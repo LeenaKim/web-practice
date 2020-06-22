@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#monitor {
+		text-align: right;
+	}
+	
+	input[type = "button"]{
+		padding: 10px;
+		margin: 5px;
+	}
+</style>
+<script>
+/*  방법 1
+	function clickData(obj) {
+		let monitor = document.getElementById("monitor");
+		if(obj.value == '='){
+			monitor.value = eval(monitor.value);
+		} else if(obj.value == 'clear'){
+			monitor.value = "";
+		} else {
+			monitor.value += obj.value;		
+		}
+		console.log(obj.value);
+	}
+*/	// 방법 2
+	function clickData(data) {
+		let monitor = document.getElementById("monitor");
+		if(data == '='){
+			monitor.value = eval(monitor.value);
+		} else if(data == 'clear'){
+			monitor.value = "";
+		} else {
+			monitor.value += data;		
+		}
+		console.log(data);
+	}
+</script>
+</head>
+<body>
+<!-- 방법 1 -->
+	<!-- <input type="text" id="monitor"><br>
+	<input type="button" value="1" onclick="clickData(this)">
+	<input type="button" value="2" onclick="clickData(this)">
+	<input type="button" value="3" onclick="clickData(this)">
+	<input type="button" value="4" onclick="clickData(this)"><br>
+	<input type="button" value="+" onclick="clickData(this)">
+	<input type="button" value="-" onclick="clickData(this)">
+	<input type="button" value="=" onclick="clickData(this)">
+	<input type="button" value="clear" onclick="clickData(this)"> -->
+	
+	<!-- 방법 2 -->
+ 	<input type="text" id="monitor"><br>
+	<input type="button" value="1" onclick="clickData(this.value)">
+	<input type="button" value="2" onclick="clickData(this.value)">
+	<input type="button" value="3" onclick="clickData(this.value)">
+	<input type="button" value="4" onclick="clickData(this.value)"><br>
+	<input type="button" value="+" onclick="clickData(this.value)">
+	<input type="button" value="-" onclick="clickData(this.value)">
+	<input type="button" value="=" onclick="clickData(this.value)">
+	<input type="button" value="clear" onclick="clickData(this.value)"> 
+	
+</body> 
+</html>
