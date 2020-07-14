@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img {
+		width: 150px;
+		height: 120px;
+		
+		/* 
+			처음 실행화면에만 이미지끼리 사이가 벌어져있음. 왜? body에서 img를 넣을때 각 img마다 엔터가 공백으로 표현된것.
+			이를 위해 float: left를 줌으로써 공백을 없앰. 
+		 */
+		float: left;		
+	}
+	
+	button {
+		float: left;
+		height: 120px;
+	}
+</style>
+<script src="/Lecture-WEB/jquery/js/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#nextBtn').click(function() {
+			$('img').last().prependTo('span')
+		})
+		
+		$('#prevBtn').click(function() {
+			$('img').first().appendTo('span')
+		})
+		
+		setInterval(function() {		// 1초에 한번씩 nextBtn 을 click하는 이벤트 발생시키기 
+			$('#nextBtn').trigger('click')
+		}, 1000)
+		
+	})
+</script>
+
+</head>
+<body>
+	<button id="prevBtn">PREV</button>
+	<span>
+		<img src="/Lecture-WEB/html/images/Looky.png">
+		<img src="/Lecture-WEB/html/images/Looky2.jpeg">
+		<img src="/Lecture-WEB/html/images/Looky3.png">
+		<img src="/Lecture-WEB/html/images/Looky4.png">
+	</span>
+	<button id="nextBtn">NEXT</button>
+</body>
+</html>

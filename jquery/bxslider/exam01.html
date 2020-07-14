@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script>
+    $(document).ready(function(){
+    	$('.slider').bxSlider({
+    		//mode: 'fade',		// 이미지가 부드럽게 fade되며 넘어감  
+    		mode: 'vertical',	// 이미지가 세로로 넘어감 
+    		captions: 'true',	// title이 이미지 밑에 나옴 
+    		slideWidth: '500'	// slider 크기 지정
+    	});
+    });
+ </script>
+</head>
+<body>
+	<div class="slider">
+    	<div><img src="/Lecture-WEB/html/images/Looky.png" title="귀여운 루키"></div>
+    	<div><img src="/Lecture-WEB/html/images/Looky2.jpeg" title="귀여운 루키2"></div>
+    	<div><img src="/Lecture-WEB/html/images/Looky3.png" title="귀여운 루키3"></div>
+  </div>
+</body>
+</html>

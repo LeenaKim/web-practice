@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <title>계산기</title>
 <script>
+/* 
+to 교수님, 퍼센트 기능을 구현해보려 노력했으나 여러 연산자와 함께 퍼센트가 들어왔을때 문자열을 어떻게 처리할지 막막하여 결국 못했습니다 ㅜㅜ
+조만간 실력을 더 키워 도전해보도록하겠습니다.....
+ */
 	/* 
 	식 뒤에 내가 누른 버튼의 숫자나 기호를 추가하는 함수 
 	*/
@@ -17,20 +21,8 @@
 		*/
 		function calculate() {
 			var display = document.getElementById('display');
-			
-			if(.includes('%')){
-				var operator = [];
-				/////////////////////////
-				for(var chr of dv){
-					if(chr == '/' || chr == '*' || chr == '-' || chr == '+') {
-						operator.append(dv.indexOf(chr));
-					}
-				}
-				
-			} else { */
-				display.value = eval(display.value);
-				
-			}
+			display.value = eval(display.value);
+			if(display.value.)
 		}
 		
 		/* 
@@ -40,6 +32,7 @@
 			document.getElementById('display').value = "";
 		
 		}
+	
 	
 </script>
 <style>

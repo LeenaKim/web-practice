@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	 div {
+		width: 400px;
+		height: 400px;
+		background-color: red;
+		display: none;			/* 처음엔 아무것도 안보이게 */ 
+		position: absolute;		/* position default가 static이라 밑의 left, top 이 먹지 않음. absolute로 바꿔야.  */
+	} 
+</style>
+<script src="/Lecture-WEB/jquery/js/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('div').animate({
+			/* 
+			width: '200px',
+			height: '+=200px'	// 현재 height보다 200px 더한값으로 
+			 */
+			width: 'toggle',
+			height: 'toggle',
+			left: '100px',
+			top: '50px',
+			opacity: '0.6'		// 투명도 
+		}, 2000)
+		
+	})
+</script>
+</head>
+<body>
+	<div></div>
+	<button>Hide</button>
+	<button>Show</button>
+</body>
+</html>

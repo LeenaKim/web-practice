@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width: 100px;
+		height: 150px;
+		float: left;
+		text-align: center;
+		line-height: 150px;
+		
+	}
+	
+	div:first-child {
+		background-color: red;
+	}
+	
+	div:nth-child(2) {
+		background-color: orange;
+	}
+	div:nth-child(3) {
+		background-color: yellow;
+	}
+	div:nth-child(4) {
+		background-color: green;
+	}
+	div:nth-child(5) {
+		background-color: aqua;
+	}
+	div:nth-child(6) {
+		background-color: blue;
+	}
+	div:last-child {
+		background-color: purple;
+	}
+</style>
+<script src="/Lecture-WEB/jquery/js/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		/* 
+			마우스를 올리고 내릴때마다 사이즈와 내용물을 다르게 한다. 
+		*/
+		$('div').hover(function() {
+			$(this).css('width', '+=40px')
+			$(this).css('height', '+=40px')
+			let val = $(this).text();
+			$(this).text(val + "요일")
+			$(this).css('line-height', '180px')
+		
+		}, function() {
+			$(this).css('width', '100px')
+			$(this).css('height', '150px')
+			let val = $(this).text()[0]
+			$(this).text(val)
+			$(this).css('line-height', '150px')
+		})
+	})
+</script>
+</head>
+<body>
+	<div>월</div>
+	<div>화</div>
+	<div>수</div>
+	<div>목</div>
+	<div>금</div>
+	<div>토</div>
+	<div>일</div>
+</body>
+</html>

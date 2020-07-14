@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "/Lecture-WEB/jquery/js/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('input').keydown(function() {		// keydown : 문자가 눌릴동안 
+			$(this).css('color', 'orange')
+		})
+		
+		$('input').keyup(function() {		// keyup : 문자가 안눌릴동안 
+			$(this).css('color', 'black')
+		})
+		
+		$('input').focus(function() {		// focus : 커서가 있을동안 
+			$(this).css('border', '3px solid pink')
+			$(this).css('background-color', 'skyblue')
+		})
+		
+		$('input').blur(function() {		// blur : 커서가 떠날동안 
+			$(this).css('border', '1px solid black')
+			$(this).css('background-color', 'white')
+			
+		})
+	})
+</script>
+</head>
+<body>
+	이름 : <input type="text" size="30"><br>
+	전화번호 : <input type="text" size="30">
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <script src = "/Lecture-WEB/jquery/js/jquery-3.5.1.min.js"></script> -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	$(window).load(function() {		// 브라우저 창 로드시 
+		console.log('load...')
+	})
+	
+	$(window).resize(function() {	// 브라우저 창 사이즈 조절시 
+		console.log('resize...')
+	})
+	
+	$(window).scroll(function() {	// 브라우저 창 스크롤시 
+		console.log('scroll...')
+	})
+	
+	// document 객체가 먼저, 그 후 window 객체 실행. 화면을 먼저 읽고(ready) 그 후 웹브라우저가 보여질때가 load. 
+	$(document).ready(function() {
+		console.log('ready...')
+	})
+</script>
+</head>
+<body>
+	<h1>Hello</h1>
+	<h1>Hello</h1>
+	<h1>Hello</h1>
+	<h1>Hello</h1>
+	<h1>Hello</h1>
+</body>
+</html>

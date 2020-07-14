@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	try {
+		throw new Error("사용자 에러!!!!")
+		let array = new Array(9999999999999); // 한도초과 
+	} catch(e) {
+		alert('예외발생!!!');
+		console.log(e.message);// Invalid array length 에러 (자바에선 exception이었지만 자스에선 error )
+		
+		for(var i in e){
+			document.write(i + " : " + e[i])
+		}
+	} finally {
+		console.log('finally 구문 진입...')
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

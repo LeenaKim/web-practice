@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/Lecture-WEB/jquery/js/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#btn01').click(function() {
+			/* 자바스크립트 
+			let h1Tag = document.createElement('h1')
+			let text = document.createTextNode('세번째 문장')
+			h1Tag.appendChild(text)
+			document.querySelector('div').appendChild(h1Tag)
+			 */
+			 
+			 // Jquery 
+			$('div').append('<h1> 세번째 문장 </h1>')
+			 
+		})
+		
+		$('#btn02').click(function() {
+//			$('ol').append('<li> 노랑 </li>')		// append : 해당 태그의 마지막에 추가 
+			$('ol').prepend('<li> 노랑 </li>')	// prepend : 해당 태그의 처음에 추가 
+		})
+		
+		$('#btn03').click(function() {
+			/* 	연속 prepend 방법 1
+				순서 - h5 -> h3 -> h4 
+			
+			$('body').prepend('<h4> 추가된 문장 </h4>')
+			$('body').prepend('<h3>또 추가된 문장 </h3>')	// prepend이기때문에 추가된 문장이 맨 앞에 추가되고, 그 위에 또 추가된 문장이 추가된다.
+			$('body').prepend('<h5>또또 추가된 문장 </h5>')
+			*/
+			
+			
+			/* 
+				연속 prepend 방법 2
+				append, prepend(content, content, content) 가능 
+				차이점 : 순서 - h4 -> h3 -> h5 
+			*/
+			$('body').prepend('<h4> 추가된 문장 </h4>', '<h3>또 추가된 문장 </h3>', '<h5>또또 추가된 문장 </h5>')
+		})
+	})
+</script>
+</head>
+<body>
+	<div>
+		<h1>첫번째 문장</h1>
+		<h1>두번째 문장</h1>
+	</div>
+	<h2>색상표</h2>
+	<ol>
+		<li>빨강</li>
+		<li>파랑</li>
+		<li>녹색</li>
+	</ol>
+	<button id="btn01">문장 추가 </button>
+	<button id="btn02">색상 추가 </button>
+	<button id="btn03">본문 추가 </button>
+</body>
+</html>

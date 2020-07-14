@@ -32,7 +32,7 @@ function Doctor(name, phone, addr, major) {
 	this.major = major
 }
 
-Doctor.prototype = Person.prototype; // doctor의 프로토타입을 person의 프로토타입과 같게함. 
+//Doctor.prototype = Person.prototype; // doctor의 프로토타입을 person의 프로토타입과 같게함. 
 
 let person = new Person('홍길동', '010-1111-2222', '경기도 광명시');
 person.info();
@@ -43,7 +43,7 @@ console.log(doctor);
 document.write('person instanceof Person : ' + (person instanceof Person) + '<br>');
 document.write('doctor instanceof Doctor : ' + (doctor instanceof Doctor) + '<br>');
 document.write('doctor instanceof Person : ' + (doctor instanceof Person) + '<br>');
-
+doctor.info();
 </script>
 </head>
 <body>

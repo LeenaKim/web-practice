@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- http://localhost:9999/Lecture-WEB/method 실행하는게 목적 -->
+	<!-- <a href="/Lecture-WEB/method">요청</a> -->
+	<form action="/Lecture-WEB/method" method="get">	<!-- 디폴트는 get방식. post로 하고싶으면 method="post" -->
+		ID : <input type="text" name="id">	<!-- ? 뒤에 무조건 Name으로 설정한 값이 날아간다.  -->
+		<input type="submit" value="Get 방식 호출">
+	</form>
+	<form action="/Lecture-WEB/method" method="post">	<!-- 디폴트는 get방식. post로 하고싶으면 method="post" -->
+		<input type="submit" value="Post 방식 호출">
+	</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	 div {
+		width: 400px;
+		height: 400px;
+		background-color: red;
+	} 
+</style>
+<script src="/Lecture-WEB/jquery/js/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		
+		/* $('div').css({
+			width: '100px',
+			height: '100px',
+			'background-color': red;
+		}) */
+		
+		$('div').hide(1000)
+		$('div').show(1000)
+		
+		$('div').toggle(1000)		// show와 hide를 번갈아가며 움직이고싶을떄 
+		$('div').toggle(1000)
+		
+		$('div').fadeOut(1000)
+		$('div').fadeIn(1000)
+		
+		$('div').fadeToggle(1000)	// fade in과 fade out을 번갈아가며 움직이고싶을때 
+		$('div').fadeToggle(1000)
+		
+		$('div').fadeTo(1000, 0.5)	// 투명도 설정
+	})
+</script>
+</head>
+<body>
+	<div></div>
+	<button>Hide</button>
+	<button>Show</button>
+</body>
+</html>
